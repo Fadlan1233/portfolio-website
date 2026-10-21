@@ -84,3 +84,64 @@ if (backToTopButton) {
         });
     });
 }
+
+
+/* ===== TYPING ANIMATION ===== */
+const typingText = document.querySelector("#typing-text");
+
+if (typingText) {
+    const words = [
+        "Aspiring Web Developer",
+        "Aspiring Programmer",
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    // Kosongkan teks agar animasi dimulai dari awal.
+    typingText.textContent = "";
+
+    function typeEffect() {
+        const currentWord = words[wordIndex];
+
+        if (!deleting) {
+            charIndex++;
+            typingText.textContent = currentWord.slice(0, charIndex);
+
+            if (charIndex >= currentWord.length) {
+                deleting = true;
+                setTimeout(typeEffect, 1500);
+                return;
+            }
+
+            setTimeout(typeEffect, 100);
+        } else {
+            charIndex--;
+            typingText.textContent = currentWord.slice(0, charIndex);
+
+            if (charIndex <= 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(typeEffect, 400);
+                return;
+            }
+
+            setTimeout(typeEffect, 55);
+        }
+    }
+
+    setTimeout(typeEffect, 500);
+}
+
+/* ===== NAVBAR SCROLL EFFECT ===== */
+const navbar = document.querySelector(".navbar");
+
+function updateNavbar() {
+    if (!navbar) return;
+
+    navbar.classList.toggle("scrolled", window.scrollY > 30);
+}
+
+window.addEventListener("scroll", updateNavbar, { passive: true });
+updateNavbar();

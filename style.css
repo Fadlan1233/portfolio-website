@@ -1,6 +1,8 @@
 
 /* ===== PENGATURAN DASAR ===== */
 :root {
+    color-scheme: dark;
+
     --bg: #0b0b12;
     --surface: #14141f;
     --text: #f5f5ff;
@@ -8,6 +10,14 @@
     --accent: #a78bfa;
     --accent-strong: #8b5cf6;
     --border: #29283a;
+    --navbar-bg: rgba(11, 11, 18, 0.92);
+    --hero-card-bg: linear-gradient(145deg, #1b192b, var(--surface));
+    --contact-bg: #10101a;
+    --heading-secondary: #d4d4e5;
+    --tag-bg: #242039;
+    --tag-text: #c4b5fd;
+    --avatar-bg: #14141f;
+    --status-text: #d4d4e5;
 }
 
 * {
@@ -39,7 +49,7 @@ a {
     align-items: center;
     gap: 24px;
     border-bottom: 1px solid var(--border);
-    background: rgba(11, 11, 18, 0.92);
+    background: var(--navbar-bg);
 }
 
 .logo {
@@ -78,15 +88,21 @@ nav a:hover {
     gap: 48px;
     background:
         radial-gradient(
-            ellipse at 15% 20%,
-            rgba(139, 92, 246, 0.14),
-            transparent 50%
+            circle at 80% 40%,
+            rgba(139, 92, 246, 0.13),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(59, 130, 246, 0.08),
+            transparent 35%
         ),
         var(--bg);
 }
 
 .hero-content {
     max-width: 610px;
+    animation: fadeUp 0.8s ease both;
 }
 
 .eyebrow {
@@ -108,7 +124,7 @@ nav a:hover {
 }
 
 .hero h2 {
-    color: #d4d4e5;
+    color: var(--heading-secondary);
     font-size: 1.35rem;
     margin-bottom: 16px;
 }
@@ -133,7 +149,9 @@ nav a:hover {
     border-radius: 9px;
     font-weight: 700;
     font-size: 0.92rem;
-    transition: transform 0.2s, background 0.2s;
+    transition: transform 0.25s ease,
+                background-color 0.25s ease,
+                box-shadow 0.25s ease;
 }
 
 .button:hover {
@@ -155,21 +173,50 @@ nav a:hover {
 }
 
 /* ===== KARTU PROFIL ===== */
+    
 .hero-card {
     width: 280px;
     flex-shrink: 0;
     padding: 32px 22px;
     text-align: center;
-    border: 1px solid var(--border);
+
+    /* Efek kaca */
+    background:
+    radial-gradient(
+        circle at 80% 40%,
+        rgba(139, 92, 246, 0.18),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 10% 10%,
+        rgba(59, 130, 246, 0.10),
+        transparent 35%
+    ),
+    var(--bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    /* Garis dan sudut */
+    border: 1px solid rgba(196, 181, 253, 0.25);
     border-radius: 20px;
-    background: linear-gradient(
-        145deg,
-        #1b192b,
-        var(--surface)
-    );
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+    /* Cahaya ungu */
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    animation: fadeUp 0.8s ease 0.2s both;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.hero-card:hover {
+    border-color: rgba(196, 181, 253, 0.5);
+    box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.35),
+        0 0 35px rgba(139, 92, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
 
 .avatar {
     width: 130px;
@@ -179,9 +226,9 @@ nav a:hover {
     object-fit: cover;
     object-position: center;
     border-radius: 50%;
-    border: 3px solid #a78bfa;
+    border: 3px solid var(--accent);
     padding: 4px;
-    background: #14141f;
+    background: var(--avatar-bg);
     box-shadow:
         0 0 15px rgba(167, 139, 250, 0.45),
         0 0 35px rgba(139, 92, 246, 0.2);
@@ -190,12 +237,9 @@ nav a:hover {
 }
 
 .avatar:hover {
-    transform: scale(1.06);
-    box-shadow:
-        0 0 22px rgba(167, 139, 250, 0.7),
-        0 0 45px rgba(139, 92, 246, 0.35);
+    transform: scale(1.04);
+    box-shadow: 0 0 28px rgba(168, 85, 247, 0.4);
 }
-
 
 .hero-card h3 {
     font-size: 1.35rem;
@@ -214,7 +258,7 @@ nav a:hover {
     padding: 7px 12px;
     border: 1px solid var(--border);
     border-radius: 30px;
-    color: #d4d4e5;
+    color: var(--status-text);
     font-size: 0.75rem;
 }
 
@@ -251,13 +295,18 @@ nav a:hover {
     padding: 26px;
     border: 1px solid var(--border);
     border-radius: 15px;
-    background: var(--surface);
-    transition: transform 0.2s, border-color 0.2s;
+    background: rgba(20, 20, 31, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-strong);
+    transform: translateY(-6px);
+    border-color: rgba(167, 139, 250, 0.7);
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
 }
 
 .skill-icon {
@@ -277,31 +326,112 @@ nav a:hover {
     font-size: 0.92rem;
 }
 
-.project-label {
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+
+/* ===== EFEK PREMIUM KARTU PROYEK ===== */
+.project-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-.project-card h3 {
-    margin-top: 14px;
+/* Garis cahaya di atas kartu */
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #8b5cf6,
+        #c4b5fd,
+        #60a5fa,
+        transparent
+    );
+
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.5s ease;
+    pointer-events: none;
 }
+
+/* Cahaya lembut di dalam kartu */
+.project-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background: radial-gradient(
+        circle at 50% 0%,
+        rgba(139, 92, 246, 0.18),
+        transparent 70%
+    );
+
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(167, 139, 250, 0.8);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25),
+        0 0 25px rgba(139, 92, 246, 0.18);
+}
+
+.project-card:hover::before {
+    background-position: 0 0;
+}
+
+.project-card:hover::after {
+    opacity: 1;
+}
+
+/* Efek fokus untuk pengguna keyboard */
+.project-card:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+/* Kurangi gerakan jika diminta perangkat */
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-card::before,
+    .project-card::after {
+        transition: none;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+}
+
 
 .tag {
     display: inline-block;
     margin-top: 20px;
     padding: 5px 10px;
     border-radius: 6px;
-    background: #242039;
-    color: #c4b5fd;
+    background: var(--tag-bg);
+    color: var(--tag-text);
     font-size: 0.78rem;
 }
 
-/* ===== KONTAK & FOOTER ===== */
+/* ===== KONTAK DAN FOOTER ===== */
 .contact {
     text-align: center;
-    background: #10101a;
+    background: var(--contact-bg);
 }
 
 .contact .section-description {
@@ -316,63 +446,7 @@ footer {
     font-size: 0.85rem;
 }
 
-/* ===== RESPONSIF UNTUK HP ===== */
-@media (max-width: 760px) {
-    .navbar {
-        flex-direction: column;
-        padding: 18px 5%;
-    }
-
-    nav {
-        justify-content: center;
-        gap: 12px 18px;
-    }
-
-    .hero {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 65px 6%;
-        gap: 38px;
-    }
-
-    .hero-card {
-        width: 100%;
-        max-width: 340px;
-        align-self: center;
-    }
-
-    .section {
-        padding: 65px 6%;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-body {
-    background-color: #0b0b12;
-    color: #f5f5ff;
-    font-family: Arial, sans-serif;
-}
-
-h1 {
-    color: #a78bfa;
-}
-
-.navbar {
-    border-bottom: 1px solid #29283a;
-}
-
-.card {
-    background-color: #14141f;
-    border: 1px solid #29283a;
-    border-radius: 15px;
-    padding: 26px;
-}
-
-
-/* Animasi masuk */
+/* ===== ANIMASI MASUK ===== */
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -384,70 +458,6 @@ h1 {
         transform: translateY(0);
     }
 }
-
-.hero-content {
-    animation: fadeUp 0.8s ease both;
-}
-
-.hero-card {
-    animation: fadeUp 0.8s ease 0.2s both;
-}
-
-/* Efek glow di latar belakang */
-.hero {
-    background:
-        radial-gradient(
-            circle at 80% 40%,
-            rgba(139, 92, 246, 0.13),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(59, 130, 246, 0.08),
-            transparent 35%
-        ),
-        var(--bg);
-}
-
-/* Hormati pengaturan pengurangan animasi */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-
-.project-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.project-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(
-        90deg,
-        #8b5cf6,
-        #60a5fa
-    );
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover::before {
-    transform: scaleX(1);
-}
-
 
 /* ===== TOMBOL HAMBURGER ===== */
 .menu-toggle {
@@ -479,7 +489,79 @@ nav a:focus-visible {
     outline-offset: 4px;
 }
 
-/* ===== MENU MOBILE ===== */
+.menu-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===== TOMBOL KEMBALI KE ATAS ===== */
+#back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    background: var(--accent-strong);
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease,
+                transform 0.3s ease,
+                background 0.3s ease,
+                visibility 0.3s ease;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background: var(--accent);
+    transform: translateY(-4px);
+}
+
+/* ===== EFEK HOVER TOMBOL ===== */
+button,
+.btn {
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background-color 0.25s ease;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(139, 92, 246, 0.25);
+}
+
+/* ===== ANIMASI REVEAL SAAT SCROLL ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== RESPONSIF UNTUK HP ===== */
 @media (max-width: 760px) {
     .navbar {
         position: relative;
@@ -515,79 +597,27 @@ nav a:focus-visible {
     .navbar nav a:hover {
         background: var(--surface);
     }
-}
 
-/* Animasi hamburger yang sederhana */
-.menu-toggle[aria-expanded="true"] span:first-child {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle[aria-expanded="true"] span:last-child {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
-
-/* ===== EFEK REVEAL SAAT SCROLL ===== */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-}
-
-.reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 65px 6%;
+        gap: 38px;
     }
-}
 
-/* ===== TOMBOL KEMBALI KE ATAS ===== */
-#back-to-top {
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
-    z-index: 1000;
+    .hero-card {
+        width: 100%;
+        max-width: 340px;
+        align-self: center;
+    }
 
-    width: 48px;
-    height: 48px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
+    .section {
+        padding: 65px 6%;
+    }
 
-    background: #8b5cf6;
-    color: white;
-    font-size: 26px;
-    cursor: pointer;
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(12px);
-
-    transition: opacity 0.3s ease,
-                transform 0.3s ease,
-                background 0.3s ease,
-                visibility 0.3s ease;
-}
-
-#back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-#back-to-top:hover {
-    background: #a78bfa;
-    transform: translateY(-4px);
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 600px) {
@@ -599,58 +629,20 @@ nav a:focus-visible {
     }
 }
 
-/* ===== MODERN HOVER EFFECTS ===== */
-
-/* Kartu proyek */
-.project-card,
-.card {
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.project-card:hover,
-.card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(167, 139, 250, 0.7);
-    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
-}
-
-/* Tombol dan tautan */
-button,
-.btn {
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background-color 0.25s ease;
-}
-
-button:hover,
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(139, 92, 246, 0.25);
-}
-
-/* Foto profil */
-.avatar {
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-.avatar:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 28px rgba(168, 85, 247, 0.4);
-}
-
-/* Pengguna yang mengurangi animasi */
+/* ===== PENGATURAN AKSESIBILITAS ===== */
 @media (prefers-reduced-motion: reduce) {
-    .project-card,
-    .card,
-    button,
-    .btn,
-    .avatar {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
         transition: none;
     }
 
@@ -661,4 +653,160 @@ button:hover,
     .avatar:hover {
         transform: none;
     }
+}
+
+/* ===== TYPING ANIMATION ===== */
+.typing-line {
+    color: var(--heading-secondary);
+}
+
+#typing-text {
+    color: var(--accent);
+}
+
+.typing-cursor {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 400;
+    animation: typingBlink 0.7s steps(1) infinite;
+}
+
+@keyframes typingBlink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .typing-cursor {
+        animation: none;
+    }
+}
+
+/* ===== ANIMASI PARTIKEL UNGU ===== */
+.hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.42;
+
+    background-image:
+        radial-gradient(circle, rgba(196, 181, 253, 0.95) 1px, transparent 2px),
+        radial-gradient(circle, rgba(167, 139, 250, 0.8) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(139, 92, 246, 0.7) 2px, transparent 3px),
+        radial-gradient(circle, rgba(216, 180, 254, 0.8) 1px, transparent 2px);
+
+    background-size:
+        110px 130px,
+        170px 190px,
+        230px 210px,
+        150px 160px;
+
+    background-position:
+        0 0,
+        40px 70px,
+        100px 30px,
+        60px 120px;
+
+    animation: floatingParticles 35s linear infinite;
+}
+
+.hero-content,
+.hero-card {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes floatingParticles {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-100px, -140px, 0);
+    }
+}
+
+/* Matikan gerakan jika pengunjung memilih
+   pengurangan animasi di perangkatnya */
+@media (prefers-reduced-motion: reduce) {
+    .hero::before {
+        animation: none;
+    }
+}
+
+/* ===== JEDA ANIMASI KARTU BERTAHAP ===== */
+.reveal.stagger-1 {
+    transition-delay: 0.1s;
+}
+
+.reveal.stagger-2 {
+    transition-delay: 0.2s;
+}
+
+.reveal.stagger-3 {
+    transition-delay: 0.3s;
+}
+
+.reveal.stagger-4 {
+    transition-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal.stagger-1,
+    .reveal.stagger-2,
+    .reveal.stagger-3,
+    .reveal.stagger-4 {
+        transition-delay: 0s;
+    }
+}
+
+/* ===== STAGGERED REVEAL ===== */
+.reveal.stagger-1 {
+    transition-delay: 0.1s;
+}
+
+.reveal.stagger-2 {
+    transition-delay: 0.2s;
+}
+
+.reveal.stagger-3 {
+    transition-delay: 0.3s;
+}
+
+.reveal.stagger-4 {
+    transition-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal.stagger-1,
+    .reveal.stagger-2,
+    .reveal.stagger-3,
+    .reveal.stagger-4 {
+        transition-delay: 0s;
+    }
+}
+
+/* ===== NAVBAR SCROLL EFFECT ===== */
+.navbar {
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(11, 11, 18, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(167, 139, 250, 0.15);
 }
