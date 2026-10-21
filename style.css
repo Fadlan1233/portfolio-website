@@ -598,3 +598,67 @@ nav a:focus-visible {
         height: 42px;
     }
 }
+
+/* ===== MODERN HOVER EFFECTS ===== */
+
+/* Kartu proyek */
+.project-card,
+.card {
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.project-card:hover,
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(167, 139, 250, 0.7);
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
+}
+
+/* Tombol dan tautan */
+button,
+.btn {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(139, 92, 246, 0.25);
+}
+
+/* Foto profil */
+.avatar {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 28px rgba(168, 85, 247, 0.4);
+}
+
+/* Pengguna yang mengurangi animasi */
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .card,
+    button,
+    .btn,
+    .avatar {
+        transition: none;
+    }
+
+    .project-card:hover,
+    .card:hover,
+    button:hover,
+    .btn:hover,
+    .avatar:hover {
+        transform: none;
+    }
+}
