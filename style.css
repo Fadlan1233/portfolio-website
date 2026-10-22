@@ -3,23 +3,22 @@
 :root {
     color-scheme: dark;
 
-    --bg: #0b0b12;
-    --surface: #14141f;
-    --text: #f5f5ff;
-    --muted: #a3a3b8;
-    --accent: #a78bfa;
-    --accent-strong: #8b5cf6;
-    --border: #29283a;
-    --navbar-bg: rgba(11, 11, 18, 0.92);
+    --bg: #120b0b;
+    --surface: #1f1414;
+    --text: #fff5f5;
+    --muted: #b8a3a3;
+    --accent: #fa8b8b;
+    --accent-strong: #f65c5c;
+    --border: #3a2828;
+    --navbar-bg: rgba(18, 11, 11, 0.92);
     --hero-card-bg: linear-gradient(145deg, #1b192b, var(--surface));
-    --contact-bg: #10101a;
-    --heading-secondary: #d4d4e5;
-    --tag-bg: #242039;
-    --tag-text: #c4b5fd;
-    --avatar-bg: #14141f;
-    --status-text: #d4d4e5;
+    --contact-bg: #1a1010;
+    --heading-secondary: #e5d4d4;
+    --tag-bg: #392020;
+    --tag-text: #fdb5b5;
+    --avatar-bg: #1f1414;
+    --status-text: #e5d4d4;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -89,12 +88,12 @@ nav a:hover {
     background:
         radial-gradient(
             circle at 80% 40%,
-            rgba(139, 92, 246, 0.13),
+            rgba(246, 92, 92, 0.13),
             transparent 35%
         ),
         radial-gradient(
             circle at 10% 10%,
-            rgba(59, 130, 246, 0.08),
+            rgba(246, 59, 59, 0.08),
             transparent 35%
         ),
         var(--bg);
@@ -164,7 +163,7 @@ nav a:hover {
 }
 
 .primary:hover {
-    background: #7c3aed;
+    background: #ed3a3a;
 }
 
 .secondary {
@@ -184,12 +183,12 @@ nav a:hover {
     background:
     radial-gradient(
         circle at 80% 40%,
-        rgba(139, 92, 246, 0.18),
+        rgba(246, 92, 92, 0.18),
         transparent 35%
     ),
     radial-gradient(
         circle at 10% 10%,
-        rgba(59, 130, 246, 0.10),
+        rgba(246, 59, 59, 0.1),
         transparent 35%
     ),
     var(--bg);
@@ -197,13 +196,13 @@ nav a:hover {
     -webkit-backdrop-filter: blur(16px);
 
     /* Garis dan sudut */
-    border: 1px solid rgba(196, 181, 253, 0.25);
+    border: 1px solid rgba(253, 181, 181, 0.25);
     border-radius: 20px;
 
     /* Cahaya ungu */
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.3),
-        0 0 30px rgba(139, 92, 246, 0.1),
+        0 0 30px rgba(246, 92, 92, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
     animation: fadeUp 0.8s ease 0.2s both;
@@ -211,10 +210,10 @@ nav a:hover {
 }
 
 .hero-card:hover {
-    border-color: rgba(196, 181, 253, 0.5);
+    border-color: rgba(253, 181, 181, 0.5);
     box-shadow:
         0 24px 65px rgba(0, 0, 0, 0.35),
-        0 0 35px rgba(139, 92, 246, 0.2),
+        0 0 35px rgba(246, 92, 92, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -230,8 +229,8 @@ nav a:hover {
     padding: 4px;
     background: var(--avatar-bg);
     box-shadow:
-        0 0 15px rgba(167, 139, 250, 0.45),
-        0 0 35px rgba(139, 92, 246, 0.2);
+        0 0 15px rgba(250, 139, 139, 0.45),
+        0 0 35px rgba(246, 92, 92, 0.2);
     transition: transform 0.3s ease,
                 box-shadow 0.3s ease;
 }
@@ -295,7 +294,7 @@ nav a:hover {
     padding: 26px;
     border: 1px solid var(--border);
     border-radius: 15px;
-    background: rgba(20, 20, 31, 0.72);
+    background: rgba(31, 20, 20, 0.72);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: transform 0.3s ease,
@@ -305,8 +304,8 @@ nav a:hover {
 
 .card:hover {
     transform: translateY(-6px);
-    border-color: rgba(167, 139, 250, 0.7);
-    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
+    border-color: rgba(250, 139, 139, 0.7);
+    box-shadow: 0 12px 30px rgba(246, 92, 92, 0.15);
 }
 
 .skill-icon {
@@ -351,9 +350,9 @@ nav a:hover {
     background: linear-gradient(
         90deg,
         transparent,
-        #8b5cf6,
-        #c4b5fd,
-        #60a5fa,
+        #f6885c,
+        #fdb5b5,
+        #fa6060,
         transparent
     );
 
@@ -373,7 +372,7 @@ nav a:hover {
 
     background: radial-gradient(
         circle at 50% 0%,
-        rgba(139, 92, 246, 0.18),
+        rgba(246, 92, 92, 0.18),
         transparent 70%
     );
 
@@ -383,11 +382,11 @@ nav a:hover {
 
 .project-card:hover {
     transform: translateY(-7px);
-    border-color: rgba(167, 139, 250, 0.8);
+    border-color: rgba(250, 139, 139, 0.8);
 
     box-shadow:
         0 15px 35px rgba(0, 0, 0, 0.25),
-        0 0 25px rgba(139, 92, 246, 0.18);
+        0 0 25px rgba(246, 92, 92, 0.18);
 }
 
 .project-card:hover::before {
@@ -401,7 +400,7 @@ nav a:hover {
 /* Efek fokus untuk pengguna keyboard */
 .project-card:focus-within {
     border-color: var(--accent);
-    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 0 0 2px rgba(246, 92, 92, 0.2);
 }
 
 /* Kurangi gerakan jika diminta perangkat */
@@ -546,7 +545,7 @@ button,
 button:hover,
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(139, 92, 246, 0.25);
+    box-shadow: 0 6px 18px rgba(246, 92, 92, 0.25);
 }
 
 /* ===== ANIMASI REVEAL SAAT SCROLL ===== */
@@ -699,10 +698,10 @@ button:hover,
     opacity: 0.42;
 
     background-image:
-        radial-gradient(circle, rgba(196, 181, 253, 0.95) 1px, transparent 2px),
-        radial-gradient(circle, rgba(167, 139, 250, 0.8) 1.5px, transparent 2.5px),
-        radial-gradient(circle, rgba(139, 92, 246, 0.7) 2px, transparent 3px),
-        radial-gradient(circle, rgba(216, 180, 254, 0.8) 1px, transparent 2px);
+        radial-gradient(circle, rgba(253, 181, 181, 0.95) 1px, transparent 2px),
+        radial-gradient(circle, rgba(250, 139, 139, 0.8) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(246, 92, 92, 0.7) 2px, transparent 3px),
+        radial-gradient(circle, rgba(254, 180, 180, 0.8) 1px, transparent 2px);
 
     background-size:
         110px 130px,
